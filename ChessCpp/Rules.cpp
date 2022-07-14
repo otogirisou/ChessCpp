@@ -1,5 +1,10 @@
 #include "Rules.h"
 
+std::list<int> Rules::PossibleMoves(int firstInput, Board board)
+{
+	return std::list<int>();
+}
+
 bool Rules::CheckMove(int firstInput, int secondInput, Board board)
 {
 	return false;

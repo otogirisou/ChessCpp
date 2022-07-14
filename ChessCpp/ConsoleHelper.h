@@ -9,18 +9,18 @@
 #include "Game.h"
 
 class ConsoleHelper {
-	Game InitialMenu();
-	int GetIndexFromInput();
-	int ParseFirstChar(char first);
-	int ParseSecondChar(char second);
-	void PrintRow(Board board, int selectedPiece, std::list<int> possibleMoves, int rowNumber);
-	void PrintBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves);
-	void PrintTurnDisplay(bool whitesTurn);
-	void PrintSpace(Space space, bool selected);
-	void PrintDeadPieces(std::list<Piece> deadPieces);
 public:
-	static void TestPrint(int i);
+	static Game InitialMenu();
+	static int GetIndexFromInput();
+	static void PrintBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves);
 
+private:
+	static int ParseFirstChar(char first);
+	static int ParseSecondChar(char second);
+	static void PrintTurnDisplay(bool whitesTurn);
+	static void PrintSpace(Space space, bool selected);
+	static void PrintDeadPieces(std::list<Piece> deadPieces);
+	static void PrintRow(Board board, int selectedPiece, std::list<int> possibleMoves, int rowNumber);
 	//void SaveGameAndExit(Game game);
 };
 
