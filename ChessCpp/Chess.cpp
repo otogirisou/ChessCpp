@@ -5,8 +5,7 @@
 #include "ConsoleHelper.h"
 #include "Game.h"
 
-
 int main() {
-	TestPrint(5);
+	ConsoleHelper::TestPrint(5);
 	return 0;
 }
