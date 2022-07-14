@@ -6,11 +6,11 @@
 #include "Space.h"
 #include "Board.h"
 #include "Piece.h"
-#include "Game.h"
 #include <algorithm>
 #include <string>
 #include <stdexcept>
 
+class Game;
 
 class ConsoleHelper {
 public:

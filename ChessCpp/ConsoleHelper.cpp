@@ -1,5 +1,5 @@
 #include "ConsoleHelper.h"
-
+#include "Game.h"
 
 
 
@@ -9,15 +9,17 @@ Game ConsoleHelper::InitialMenu()
 	do
 	{
 		printf("\033c"); //maybe????
-		std::cout << "Enter 'new' to start a new game";
-		std::cout << "Enter 'load' to load previous game. Enter 'save' while playing to save";
+		std::cout << "Enter 'new' to start a new game" << '\n';
+		std::cout << "Enter 'load' to load previous game. Enter 'save' while playing to save" << '\n';
 		std::cin >> userInput;
 	} while (userInput != "new"); //&& userInput != "load");
 	if (userInput == "new")
 	{
 		std::list<Piece> deadWhites;
 		std::list<Piece> deadBlacks;
-		return Game(deadWhites, deadBlacks);
+		Game game = Game(deadWhites, deadBlacks);
+		game.SetUpBoard();
+		return game;
 	}
 }
 
@@ -135,17 +137,15 @@ void ConsoleHelper::PrintTurnDisplay(bool whitesTurn)
 
 void ConsoleHelper::PrintSpace(Space space, bool selected)
 {
-	char letterToPrint{};
 	if (space.OccupyingPiece != nullptr)
 	{
 		Piece thePiece = *space.OccupyingPiece;
-		letterToPrint = thePiece.getLetter();
+		std::cout << thePiece.getLetter();
 	}
 	else
 	{
-		letterToPrint = ' ';
+		std::cout << ' ';
 	}
-	std::cout << letterToPrint;
 	std::cout << ' ';
 }
 

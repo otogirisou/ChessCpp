@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <iostream>
 #include "Rules.h"
+#include <list>
 
 class Game {
 private:
@@ -16,7 +17,7 @@ private:
 	int GetIndexFromUser();
 	void DisplayBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves);
 	void DisplayMessage(std::string message);
-	Board currentBoard{}; //check here
+	Board currentBoard; //check here
 	bool whitesTurn{};
 	std::list<Piece> deadWhitePieces{};
 	std::list<Piece> deadBlackPieces{};
@@ -24,6 +25,7 @@ private:
 public:
 	void StartGame();
 	void PerformMove(int firstInput, int secondInput);
+	void SetUpBoard();
 	bool getWhitesTurn();
 	Board getCurrentBoard();
 	std::list<Piece> getDeadWhitePieces();

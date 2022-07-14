@@ -12,5 +12,6 @@ Space::Space(bool w)
 }
 
 Space::Space()
+	: OccupyingPiece(nullptr)
 {
 }

@@ -12,6 +12,8 @@ void Game::StartGame() {
 		if (firstMove == -1)
 		{
 			DisplayMessage("Not a valid input! Try again");
+			//temp
+			continue;
 		}
 		else if (firstMove == -2)
 		{
@@ -94,6 +96,11 @@ void Game::PerformMove(int firstInput, int secondInput)
 	currentBoard.grid[firstInput].OccupyingPiece = nullptr;
 }
 
+void Game::SetUpBoard()
+{
+	currentBoard.InitialSetup();
+}
+
 int Game::GetIndexFromUser()
 {
 	return ConsoleHelper::GetIndexFromInput();
@@ -131,7 +138,7 @@ std::list<Piece> Game::getDeadBlackPieces()
 }
 
 Game::Game(std::list<Piece> deadwhites, std::list<Piece> deadblacks)
-	: deadWhitePieces(deadwhites), deadBlackPieces(deadblacks)
+	: deadWhitePieces(deadwhites), deadBlackPieces(deadblacks), whitesTurn(true)
 {
 }
 

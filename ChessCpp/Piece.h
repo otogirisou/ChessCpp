@@ -12,7 +12,7 @@ enum class pieceType {
 
 class Piece {
 private:
-	pieceType typeOfPiece{};
+	pieceType typeOfPiece;
 	char letter{};
 	bool white{};
 	bool hasMoved{};
