@@ -12,7 +12,7 @@ private:
 	int GetIndexFromUser();
 	void DisplayBoard();
 	void DisplayMessage(std::string message);
-	Board currentBoard{};
+	Board currentBoard{}; //check here
 	bool whitesTurn{};
 	std::list<Piece> deadWhitePieces{};
 	std::list<Piece> deadBlackPieces{};
@@ -27,6 +27,7 @@ public:
 	Board getCurrentBoard();
 	std::list<Piece> getDeadWhitePieces();
 	std::list<Piece> getDeadBlackPieces();
+	Game(std::list<Piece> deadwhites, std::list<Piece> deadblacks);
 };
 #endif // !GAME_H
 

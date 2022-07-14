@@ -6,6 +6,6 @@
 #include "Game.h"
 
 int main() {
-	ConsoleHelper::TestPrint(5);
+	
 	return 0;
 }

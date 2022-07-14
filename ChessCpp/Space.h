@@ -5,9 +5,10 @@
 
 class Space {
 public:
-	Piece OccupyingPiece; //check here constructor stuff
+	Piece* OccupyingPiece; //check here constructor stuff
 	bool getWhiteSpace();
 	Space(bool w);
+	Space();
 private:
 	bool whiteSpace{};
 };

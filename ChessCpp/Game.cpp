@@ -44,3 +44,8 @@ std::list<Piece> Game::getDeadBlackPieces()
 {
 	return deadBlackPieces;
 }
+
+Game::Game(std::list<Piece> deadwhites, std::list<Piece> deadblacks)
+	: deadWhitePieces(deadwhites), deadBlackPieces(deadblacks)
+{
+}

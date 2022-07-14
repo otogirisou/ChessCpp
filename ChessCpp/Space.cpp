@@ -6,7 +6,11 @@ bool Space::getWhiteSpace()
 }
 
 Space::Space(bool w)
-	: whiteSpace(w)
+	: whiteSpace(w), OccupyingPiece(nullptr)
 {
 
+}
+
+Space::Space()
+{
 }
