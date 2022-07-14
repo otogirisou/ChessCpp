@@ -1,4 +1,7 @@
 #include "Rules.h"
+#include <list>
+#include "Game.h"
+#include "Piece.h"
 
 std::list<int> Rules::PossibleMoves(int firstInput, Board board)
 {
@@ -35,9 +38,42 @@ bool Rules::CheckMove(int firstInput, int secondInput, Board board)
 	}
 }
 
-bool Rules::CheckCheck(int firstInput, int secondInput, Board, bool whitesTurn)
+bool Rules::CheckCheck(int firstInput, int secondInput, Board board, bool whitesTurn)
 {
-	return false;
+	Game tempGame = Game(board);
+	tempGame.PerformMove(firstInput, secondInput);
+	for (int kingIndex = 0; kingIndex < 64; kingIndex++)
+	{
+		if (tempGame.getCurrentBoard().grid[kingIndex].OccupyingPiece != nullptr)
+		{
+			Piece maybeKing = *tempGame.getCurrentBoard().grid[kingIndex].OccupyingPiece;
+			if (maybeKing.getPieceType() == pieceType::King && maybeKing.getWhite() == whitesTurn)
+			{
+				for (int i = 0; i < 64; i++)
+				{
+					if (i == kingIndex)
+					{
+						continue;
+					}
+					if (tempGame.getCurrentBoard().grid[i].OccupyingPiece != nullptr)
+					{
+						Piece tempPiece = *tempGame.getCurrentBoard().grid[i].OccupyingPiece;
+						if (tempPiece.getWhite() == whitesTurn)
+						{
+							continue;
+						}
+						if (CheckMove(i, kingIndex, tempGame.getCurrentBoard()))
+						{
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+		}
+	}
+	return false; //unreachable because there will always be a king
+
 }
 
 bool Rules::CheckPawn(int firstInput, int secondInput, Board board)

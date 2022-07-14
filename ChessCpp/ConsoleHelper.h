@@ -7,6 +7,10 @@
 #include "Board.h"
 #include "Piece.h"
 #include "Game.h"
+#include <algorithm>
+#include <string>
+#include <stdexcept>
+
 
 class ConsoleHelper {
 public:

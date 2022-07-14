@@ -8,7 +8,7 @@ class Rules {
 public:
 	static std::list<int> PossibleMoves(int firstInput, Board board);
 	static bool CheckMove(int firstInput, int secondInput, Board board);
-	static bool CheckCheck(int firstInput, int secondInput, Board, bool whitesTurn);
+	static bool CheckCheck(int firstInput, int secondInput, Board board, bool whitesTurn);
 private:
 	static bool CheckPawn(int firstInput, int secondInput, Board board);
 	static bool CheckTower(int firstInput, int secondInput, Board board);
