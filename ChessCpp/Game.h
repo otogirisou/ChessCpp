@@ -15,7 +15,7 @@ class Game {
 private:
 	//void SaveGameAndExit();
 	int GetIndexFromUser();
-	void DisplayBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves);
+	void DisplayBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves);
 	void DisplayMessage(std::string message);
 	Board currentBoard; //check here
 	bool whitesTurn{};
@@ -30,8 +30,8 @@ public:
 	Board getCurrentBoard();
 	std::list<Piece> getDeadWhitePieces();
 	std::list<Piece> getDeadBlackPieces();
-	Game(std::list<Piece> deadwhites, std::list<Piece> deadblacks);
-	Game(Board board);
+	Game(const std::list<Piece>& deadwhites, const std::list<Piece>& deadblacks);
+	Game(const Board& board);
 };
 #endif // !GAME_H
 

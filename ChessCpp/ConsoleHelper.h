@@ -16,15 +16,15 @@ class ConsoleHelper {
 public:
 	static Game InitialMenu();
 	static int GetIndexFromInput();
-	static void PrintBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves);
+	static void PrintBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves);
 
 private:
 	static int ParseFirstChar(char first);
 	static int ParseSecondChar(char second);
 	static void PrintTurnDisplay(bool whitesTurn);
-	static void PrintSpace(Space space, bool selected);
-	static void PrintDeadPieces(std::list<Piece> deadPieces);
-	static void PrintRow(Board board, int selectedPiece, std::list<int> possibleMoves, int rowNumber);
+	static void PrintSpace(const Space& space, bool selected);
+	static void PrintDeadPieces(const std::list<Piece>& deadPieces);
+	static void PrintRow(const Board& board, int selectedPiece, const std::list<int>& possibleMoves, int rowNumber);
 	//void SaveGameAndExit(Game game);
 };
 

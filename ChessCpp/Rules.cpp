@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "Piece.h"
 
-std::list<int> Rules::PossibleMoves(int firstInput, Board board)
+std::list<int> Rules::PossibleMoves(int firstInput, const Board& board)
 {
 	std::list<int> possibleMoves;
 	for (int i = 0; i < 64; i++)
@@ -16,7 +16,7 @@ std::list<int> Rules::PossibleMoves(int firstInput, Board board)
 	return possibleMoves;
 }
 
-bool Rules::CheckMove(int firstInput, int secondInput, Board board)
+bool Rules::CheckMove(int firstInput, int secondInput, const Board& board)
 {
 	Piece firstPiece = *board.grid[firstInput].OccupyingPiece;
 	switch (firstPiece.getPieceType())
@@ -76,7 +76,7 @@ bool Rules::CheckCheck(int firstInput, int secondInput, Board board, bool whites
 
 }
 
-bool Rules::CheckPawn(int firstInput, int secondInput, Board board)
+bool Rules::CheckPawn(int firstInput, int secondInput, const Board& board)
 {
 	Piece firstPiece = *board.grid[firstInput].OccupyingPiece;
 	if (board.grid[secondInput].OccupyingPiece == nullptr) //maybe switches here?
@@ -129,7 +129,7 @@ bool Rules::CheckPawn(int firstInput, int secondInput, Board board)
 	}
 }
 
-bool Rules::CheckTower(int firstInput, int secondInput, Board board)
+bool Rules::CheckTower(int firstInput, int secondInput, const Board& board)
 {
 	Piece firstPiece = *board.grid[firstInput].OccupyingPiece;
 	//towering probably by editing here
@@ -215,7 +215,7 @@ bool Rules::CheckTower(int firstInput, int secondInput, Board board)
 	return false;
 }
 
-bool Rules::CheckBishop(int firstInput, int secondInput, Board board)
+bool Rules::CheckBishop(int firstInput, int secondInput, const Board& board)
 {
 	Piece firstPiece = *board.grid[firstInput].OccupyingPiece;
 	if (board.grid[secondInput].OccupyingPiece != nullptr)
@@ -286,7 +286,7 @@ bool Rules::CheckBishop(int firstInput, int secondInput, Board board)
 	}
 }
 
-bool Rules::CheckKnight(int firstInput, int secondInput, Board board)
+bool Rules::CheckKnight(int firstInput, int secondInput, const Board& board)
 {
 	Piece firstPiece = *board.grid[firstInput].OccupyingPiece;
 	if (board.grid[secondInput].OccupyingPiece != nullptr)
@@ -314,7 +314,7 @@ bool Rules::CheckKnight(int firstInput, int secondInput, Board board)
 	return false;
 }
 
-bool Rules::CheckKing(int firstInput, int secondInput, Board board)
+bool Rules::CheckKing(int firstInput, int secondInput, const Board& board)
 {
 	Piece firstPiece = *board.grid[firstInput].OccupyingPiece;
 	if (board.grid[secondInput].OccupyingPiece != nullptr)
@@ -340,7 +340,7 @@ bool Rules::CheckKing(int firstInput, int secondInput, Board board)
 	return false;
 }
 
-bool Rules::CheckQueen(int firstInput, int secondInput, Board board)
+bool Rules::CheckQueen(int firstInput, int secondInput, const Board& board)
 {
 	if (CheckKing(firstInput, secondInput, board) || CheckTower(firstInput, secondInput, board) || CheckBishop(firstInput, secondInput, board)) //queens moveset is a combination of these three
 	{

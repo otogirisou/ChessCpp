@@ -19,6 +19,7 @@ Game ConsoleHelper::InitialMenu()
 		std::list<Piece> deadBlacks;
 		Game game = Game(deadWhites, deadBlacks);
 		game.SetUpBoard();
+		PrintBoard(game.getCurrentBoard(), deadWhites, deadBlacks, -1, game.getWhitesTurn(), std::list<int>());
 		return game;
 	}
 }
@@ -94,7 +95,7 @@ int ConsoleHelper::ParseSecondChar(char second)
 	}
 }
 
-void ConsoleHelper::PrintRow(Board board, int selectedPiece, std::list<int> possibleMoves, int rowNumber)
+void ConsoleHelper::PrintRow(const Board& board, int selectedPiece, const std::list<int>& possibleMoves, int rowNumber)
 {
 	bool selected;
 	for (int i = 0; i < 8; i++)
@@ -109,7 +110,7 @@ void ConsoleHelper::PrintRow(Board board, int selectedPiece, std::list<int> poss
 	}
 }
 
-void ConsoleHelper::PrintBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves)
+void ConsoleHelper::PrintBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves)
 {
 	printf("\033c"); //maybe????
 	for (int i = 0; i < 8; i++)
@@ -135,7 +136,7 @@ void ConsoleHelper::PrintTurnDisplay(bool whitesTurn)
 {
 }
 
-void ConsoleHelper::PrintSpace(Space space, bool selected)
+void ConsoleHelper::PrintSpace(const Space& space, bool selected)
 {
 	if (space.OccupyingPiece != nullptr)
 	{
@@ -149,6 +150,6 @@ void ConsoleHelper::PrintSpace(Space space, bool selected)
 	std::cout << ' ';
 }
 
-void ConsoleHelper::PrintDeadPieces(std::list<Piece> deadPieces)
+void ConsoleHelper::PrintDeadPieces(const std::list<Piece>& deadPieces)
 {
 }

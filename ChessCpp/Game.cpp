@@ -2,7 +2,7 @@
 
 
 
-void Game::StartGame() {
+void Game::StartGame() { //refactor this holy shit
 	int firstMove;
 	int secondMove;
 	while (true)
@@ -112,7 +112,7 @@ void Game::DisplayMessage(std::string message)
 	std::cout << message;
 }
 
-void Game::DisplayBoard(Board board, std::list<Piece> deadWhitePieces, std::list<Piece> deadBlackPieces, int selectedPiece, bool whitesTurn, std::list<int> possibleMoves)
+void Game::DisplayBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves)
 {
 	ConsoleHelper::PrintBoard(board, deadWhitePieces, deadBlackPieces, selectedPiece, whitesTurn, possibleMoves);
 }
@@ -137,12 +137,12 @@ std::list<Piece> Game::getDeadBlackPieces()
 	return deadBlackPieces;
 }
 
-Game::Game(std::list<Piece> deadwhites, std::list<Piece> deadblacks)
+Game::Game(const std::list<Piece>& deadwhites, const std::list<Piece>& deadblacks)
 	: deadWhitePieces(deadwhites), deadBlackPieces(deadblacks), whitesTurn(true)
 {
 }
 
-Game::Game(Board board)
+Game::Game(const Board& board)
 {
 	currentBoard = board;
 }
