@@ -160,10 +160,22 @@ void ConsoleHelper::PrintBoard(const Board& board, const std::list<Piece>& deadW
 		std::cout << '\n';
 	}
 	std::cout << "     A B C D E F G H" << '\n';
+	PrintTurnDisplay(whitesTurn);
 }
 
 void ConsoleHelper::PrintTurnDisplay(bool whitesTurn)
 {
+	std::cout << fg::black;
+	if (whitesTurn)
+	{
+		std::cout << bg::cyan << "       Blues's turn " << '\n';
+	}
+	else
+	{
+		std::cout << bg::magenta << "       Reds's turn  " << '\n';
+	}
+	std::cout << bg::reset << fg::reset;
+
 }
 
 void ConsoleHelper::PrintSpace(const Space& space, bool selected)
