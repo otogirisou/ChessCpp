@@ -1,8 +1,8 @@
 #include "Space.h"
 
-bool Space::getWhiteSpace()
+bool Space::getWhiteSpace() const
 {
-	return false;
+	return whiteSpace;
 }
 
 Space::Space(bool w)

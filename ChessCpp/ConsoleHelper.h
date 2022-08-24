@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <string>
 #include <stdexcept>
+#include "rang.hpp"
 
 class Game;
 
@@ -25,6 +26,8 @@ private:
 	static void PrintSpace(const Space& space, bool selected);
 	static void PrintDeadPieces(const std::list<Piece>& deadPieces);
 	static void PrintRow(const Board& board, int selectedPiece, const std::list<int>& possibleMoves, int rowNumber);
+	static rang::bg GetBackground(const Space& space, bool selected);
+	static rang::fg GetForeground(const Space&);
 	//void SaveGameAndExit(Game game);
 };
 

@@ -6,7 +6,7 @@
 class Space {
 public:
 	Piece* OccupyingPiece; //check here constructor stuff
-	bool getWhiteSpace();
+	bool getWhiteSpace() const;
 	Space(bool w);
 	Space();
 private:

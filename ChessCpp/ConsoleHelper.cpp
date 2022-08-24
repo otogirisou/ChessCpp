@@ -1,6 +1,8 @@
 #include "ConsoleHelper.h"
 #include "Game.h"
 
+using namespace rang;
+
 
 
 Game ConsoleHelper::InitialMenu()
@@ -110,6 +112,34 @@ void ConsoleHelper::PrintRow(const Board& board, int selectedPiece, const std::l
 	}
 }
 
+rang::bg ConsoleHelper::GetBackground(const Space& space, bool selected)
+{
+	if (selected)
+	{
+		return bg::green;
+	}
+	else if (space.getWhiteSpace())
+	{
+		return bg::gray;
+	}
+	else
+	{
+		return bg::black;
+	}
+}
+
+rang::fg ConsoleHelper::GetForeground(const Space& space)
+{
+	if (space.OccupyingPiece->getWhite())
+	{
+		return fg::blue;
+	}
+	else
+	{
+		return fg::red;
+	}
+}
+
 void ConsoleHelper::PrintBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves)
 {
 	printf("\033c"); //maybe????
@@ -138,16 +168,18 @@ void ConsoleHelper::PrintTurnDisplay(bool whitesTurn)
 
 void ConsoleHelper::PrintSpace(const Space& space, bool selected)
 {
+	bg background = GetBackground(space, selected);
 	if (space.OccupyingPiece != nullptr)
 	{
-		Piece thePiece = *space.OccupyingPiece;
-		std::cout << thePiece.getLetter();
+		fg foreground = GetForeground(space);
+		std::cout << foreground << background << space.OccupyingPiece->getLetter();
 	}
 	else
 	{
-		std::cout << ' ';
+		std::cout << background << ' ';
 	}
-	std::cout << ' ';
+	std::cout << background << ' ';
+	std::cout << bg::reset << fg::reset;
 }
 
 void ConsoleHelper::PrintDeadPieces(const std::list<Piece>& deadPieces)
