@@ -154,6 +154,7 @@
     <ClInclude Include="Piece.h" />
     <ClInclude Include="rang.hpp" />
     <ClInclude Include="Rules.h" />
+    <ClInclude Include="SaveLoad.h" />
     <ClInclude Include="Space.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

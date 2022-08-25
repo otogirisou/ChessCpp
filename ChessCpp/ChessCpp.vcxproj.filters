@@ -59,5 +59,8 @@
     <ClInclude Include="rang.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SaveLoad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
