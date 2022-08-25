@@ -5,7 +5,7 @@ pieceType Piece::getPieceType()
 	return typeOfPiece;
 }
 
-bool Piece::getHasMoved()
+bool Piece::getHasMoved() const
 {
 	return hasMoved;
 }
@@ -16,12 +16,12 @@ void Piece::setHasMoved(bool input)
 		hasMoved = input;
 }
 
-char Piece::getLetter()
+char Piece::getLetter() const
 {
 	return letter;
 }
 
-bool Piece::getWhite()
+bool Piece::getWhite() const
 {
 	return white;
 }

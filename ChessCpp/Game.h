@@ -13,23 +13,25 @@
 
 class Game {
 private:
-	//void SaveGameAndExit();
-	int GetIndexFromUser();
-	void DisplayBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves);
-	void DisplayMessage(std::string message);
+	void SaveGameAndExit();
+	static int GetIndexFromUser();
+	void DisplayBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves) const;
+	static void DisplayMessage(std::string message);
 	Board currentBoard; //check here
 	bool whitesTurn{};
 	std::list<Piece> deadWhitePieces{};
 	std::list<Piece> deadBlackPieces{};
+	int GetFirstMove();
+	int GetSecondMove(int firstMove);
 
 public:
 	void StartGame();
 	void PerformMove(int firstInput, int secondInput);
 	void SetUpBoard();
-	bool getWhitesTurn();
-	Board getCurrentBoard();
-	std::list<Piece> getDeadWhitePieces();
-	std::list<Piece> getDeadBlackPieces();
+	bool getWhitesTurn() const;
+	Board getCurrentBoard() const;
+	std::list<Piece> getDeadWhitePieces() const;
+	std::list<Piece> getDeadBlackPieces() const;
 	Game(const std::list<Piece>& deadwhites, const std::list<Piece>& deadblacks);
 	Game(const Board& board);
 };

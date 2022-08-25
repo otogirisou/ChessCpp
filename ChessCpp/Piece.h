@@ -19,10 +19,10 @@ private:
 
 public:
 	pieceType getPieceType();
-	bool getHasMoved();
+	bool getHasMoved() const;
 	void setHasMoved(bool input);
-	char getLetter();
-	bool getWhite();
+	char getLetter() const;
+	bool getWhite() const;
 	Piece(bool White, pieceType piecetype);
 	Piece();
 };

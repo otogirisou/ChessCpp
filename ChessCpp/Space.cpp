@@ -5,6 +5,7 @@ bool Space::getWhiteSpace() const
 	return whiteSpace;
 }
 
+
 Space::Space(bool w)
 	: whiteSpace(w), OccupyingPiece(nullptr)
 {
