@@ -78,18 +78,16 @@ void Game::StartGame() { //refactor this holy shit
 
 void Game::PerformMove(int firstInput, int secondInput)
 {
-	Piece firstPiece = *currentBoard.grid[firstInput].OccupyingPiece;
-	firstPiece.setHasMoved(true);
+	currentBoard.grid[firstInput].OccupyingPiece->setHasMoved(true);
 	if (currentBoard.grid[secondInput].OccupyingPiece != nullptr)
 	{
-		Piece secondPiece = *currentBoard.grid[secondInput].OccupyingPiece;
-		if (secondPiece.getWhite())
+		if (currentBoard.grid[secondInput].OccupyingPiece->getWhite())
 		{
-			deadWhitePieces.push_back(secondPiece);
+			deadWhitePieces.push_back(*currentBoard.grid[secondInput].OccupyingPiece);
 		}
 		else
 		{
-			deadBlackPieces.push_back(secondPiece);
+			deadBlackPieces.push_back(*currentBoard.grid[secondInput].OccupyingPiece);
 		}
 	}
 	currentBoard.grid[secondInput].OccupyingPiece = currentBoard.grid[firstInput].OccupyingPiece;
@@ -109,7 +107,7 @@ int Game::GetIndexFromUser()
 
 void Game::DisplayMessage(std::string message)
 {
-	std::cout << message;
+	std::cout << message << '\n';
 }
 
 void Game::DisplayBoard(const Board& board, const std::list<Piece>& deadWhitePieces, const std::list<Piece>& deadBlackPieces, int selectedPiece, bool whitesTurn, const std::list<int>& possibleMoves)
